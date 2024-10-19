@@ -1,0 +1,204 @@
+/* General Styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    background-color: #865dbb;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #1e3d59;
+    padding: 10px 20px;
+}
+
+.navbar h1 {
+    color: #fff;
+    margin-left: 10px;
+    flex-grow: 1;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+}
+
+/* Header */
+.header {
+    background: url('../img/mountain-landscape.png') no-repeat center center/cover;
+    height: 300px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.header-content h2 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.header-content p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+/* Main Content Wrapper */
+main {
+    flex: 1; /* Makes sure content fills the available space */
+    padding-bottom: 20px;
+}
+
+/* Review Section */
+.review-section {
+    padding: 30px;
+    text-align: center;
+}
+
+.review-section h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #1e3d59;
+}
+
+.review-card {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    text-align: left;
+    border-radius: 10px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.review-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.review-title {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.review-text {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: #555;
+}
+
+.review-author {
+    font-weight: bold;
+    color: #1e3d59;
+}
+
+.review-rating {
+    font-size: 1.2rem;
+    color: gold;
+}
+
+/* Review Form Section */
+.review-form-section {
+    background-color: #fff;
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.review-form input, .review-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.review-form textarea {
+    resize: none;
+}
+
+.review-form .btn {
+    background-color: #1e3d59;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.review-form .btn:hover {
+    background-color: #16384a;
+}
+
+/* Footer */
+footer {
+    background-color: #1e3d59;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    margin-top: auto; /* Pushes the footer to the bottom */
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries */
+@media (max-width: 600px) {
+    .review-form-section {
+        width: 90%;
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #1e3d59;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: relative; /* Changed from fixed to relative */
+    width: 100%;
+    bottom: 0;
+}
+
+/* Review Form Section */
+.review-form-section {
+    margin: 30px auto;
+    max-width: 600px;
+    text-align: center;
+    padding-bottom: 50px; /* Extra space to avoid overlap */
+}
