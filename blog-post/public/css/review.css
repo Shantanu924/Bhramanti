@@ -6,8 +6,7 @@ html, body {
     font-family: 'Poppins', sans-serif;
     /* background-color: #000000; */
     display: flex;
-    flex-direction: column; /* Stack content vertically */
-    
+    flex-direction: column;
 }
 
 /* Navbar */
@@ -22,12 +21,9 @@ html, body {
     width: 100%;
     justify-content: space-around;
     align-items: center;
-    
-    /* z-index: 10; */
-    color: whitesmoke;
-    padding: 3px;
-  }
-  
+    background-color: #1e3d59;
+    padding: 10px 20px;
+}
 
 .navbar h1 {
     color: #fff;
@@ -60,7 +56,6 @@ html, body {
 
 .head-content h2 {
     font-size: 2.5rem;
-    margin: 0;
 }
 
 .head-content p {
@@ -70,7 +65,7 @@ html, body {
 
 /* Main Content Wrapper */
 main {
-    /* flex: 1; Makes sure content fills the available space */
+    flex: 1; /* Makes sure content fills the available space */
     padding-bottom: 20px;
 }
 
@@ -83,29 +78,19 @@ main {
     text-align: center;
 }
 
-.reviews-cont{
-    display: flex;
-
-    max-width: 100%;
-    max-height: fit-content;
-
-}
-
 .review-section h2 {
     margin-bottom: 20px;
     font-size: 2rem;
-    color: #f7f7f7;
+    color: #1e3d59;
 }
 
 .review-card {
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
     padding: 20px;
     max-width: 600px;
-    text-align: left;
     border-radius: 10px;
-    animation: fadeIn 0.5s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .review-image {
@@ -120,33 +105,12 @@ main {
     margin: 10px 0;
 }
 
-.review-text {
-    font-size: 1rem;
-    margin: 10px 0;
-    color: #555;
-}
-
-.review-author {
-    font-weight: bold;
-    color: #1e3d59;
-}
-
 .review-rating {
     font-size: 1.2rem;
     color: gold;
 }
 
-/* Review Form Section */
-.review-form-section {
-    background-color: #fff;
-    padding: 30px;
-    margin: 30px auto;
-    max-width: 600px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
+/* Review Form */
 .review-form {
     display: flex;
     flex-direction: column;
@@ -154,15 +118,9 @@ main {
 }
 
 .review-form input, .review-form textarea {
-    width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 1rem;
-}
-
-.review-form textarea {
-    resize: none;
 }
 
 .review-form .btn {
@@ -185,7 +143,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px;
-    /* position: relative; */
+    position: relative;
     margin-top: auto; /* Pushes the footer to the bottom */
 }
 
@@ -208,21 +166,174 @@ footer {
     }
 }
 
-/* Footer */
-footer {
-    background-color: #1e3d59;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    position: relative; /* Changed from fixed to relative */
-    width: 100%;
-    bottom: 0;
+/* Review Form Section Styling */
+.review-form-section {
+    background-color: #f9f9f9;
+    margin: 50px auto;
+    max-width: 600px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Review Form Section */
-.review-form-section {
-    margin: 30px auto;
-    max-width: 600px;
-    text-align: center;
-    padding-bottom: 50px; /* Extra space to avoid overlap */
+/* Form Container for Better Alignment */
+.form-container {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Space between elements */
 }
+
+/* Form Styling */
+.review-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Input Fields and Textarea */
+.review-form input, 
+.review-form textarea {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+/* Ensure Textarea Does Not Resize Unexpectedly */
+.review-form textarea {
+    resize: none;
+}
+
+/* Submit Button Styling */
+.review-form .btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #1e3d59;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.review-form .btn:hover {
+    background-color: #16384a;
+}
+
+/* Responsive Styling for Smaller Screens */
+@media (max-width: 600px) {
+    .review-form-section {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .form-container {
+        max-width: 100%;
+    }
+}
+
+/* Star Rating Section */
+.rating-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+/* Hide radio inputs */
+.star-rating input {
+    display: none;
+}
+
+/* Star label styles */
+.star {
+    font-size: 2rem;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out, transform 0.1s ease;
+}
+
+/* Highlight stars on hover */
+.star:hover,
+.star:hover ~ .star {
+    color: gold;
+    transform: scale(1.1);
+}
+
+/* Highlight selected stars */
+.star-rating input:checked ~ label {
+    color: gold;
+}
+
+/* Reverse the sibling order for hover effect */
+.star-rating label {
+    direction: rtl;
+}
+
+.filter-sort-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.filter-sort {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.filter-sort-label {
+    margin-right: 10px; /* Space between label and dropdown */
+    font-weight: 500;    /* Make the label bold */
+    color: #cbcbce;      /* Consistent color with your theme */
+}
+
+.search-container {
+    margin: 20px auto; /* Center the container */
+    text-align: center; /* Center the input */
+}
+
+.search-input {
+    width: 60%; /* Set width to a smaller percentage */
+    max-width: 400px; /* Maximum width for larger screens */
+    padding: 8px; /* Adjust padding for a more compact look */
+    border: 1px solid #ccc; /* Border for input */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Font size */
+}
+
+.search-input::placeholder {
+    color: #aaa; /* Placeholder color */
+}
+
+.edit-btn, .delete-btn {
+    background-color: #ff4d4d; /* Red background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px; /* Padding */
+    margin-left: 10px; /* Space between buttons */
+    cursor: pointer; /* Pointer cursor */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.edit-btn:hover, .delete-btn:hover {
+    background-color: #ff1a1a; /* Darker red on hover */
+}
+
