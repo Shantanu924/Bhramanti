@@ -136,7 +136,7 @@ html {
 header {
   width: 100vw;
   height: 100vh;
-  background-image: url("../img/bg.jpg");
+  background: url("../img/vid-1.mp4");
   background-position: bottom;
   background-attachment: fixed;
   background-size: cover;
@@ -876,7 +876,7 @@ input[type=radio] {
 
 .cardt {
   position: absolute;
-  width: 60%;
+  width: 80%;
   height: 100%;
   left: 5vw;
   right: 0;
@@ -886,6 +886,12 @@ input[type=radio] {
   cursor: pointer;
 }
 
+.btn{
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #03c2fc;
+  color: white;
+}
 .containerx {
   width: 100%;
   height: 50vh;
@@ -894,7 +900,7 @@ input[type=radio] {
 
 .cards {
   position: relative;
-  width: 100vh;
+  width: 50vw;
   height: 100%;
 }
 

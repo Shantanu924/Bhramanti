@@ -5,12 +5,15 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Bhramanti</title>
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-        />
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+        <link rel="icon" href="img/p-2.jpg">
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
         <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="css/responsive.css" />
+
         <link
             rel="apple-touch-icon"
             sizes="180x180"
@@ -87,27 +90,36 @@
         <!--navbar-->
 
         <header id="home">
+            
             <div id="about_us">
-                <div class="boxx" style="padding: 50px;">
-                    <div class="containerx" style="display: flex; align-items: center; justify-content: center; margin-right: 50px; padding: 10px;">
-                        <div >
-                        <h2 id="quote" style="z-index: 50; align-content: center; margin-top: 80px;">Explore the colourful World</h2>
-                            <div class="header-content" style="z-index: 50;  margin:0; padding: 0;">
-                                <!-- <div class="line" style="color: inherit;"></div> -->
-                                <h1 style="text-align: start;">A WONDERFUL GIFT</h1>
-                                <!-- <a
-                                    href="#about"
-                                    class="ctn"
-                                    onclick='removeall(); $("#quad").css("border", "2px solid whitesmoke"); $("#quad").css("border-radius", "20px");'
-                                    >Learn more</a
-                                > -->
-                            </div>
-                        </div>
+                
+                <video src="/img/vid-1.mp4" autoplay loop muted 
+                style="
+                width: 100vw;
+                height: 100vh;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            z-index: -1;
+                "  >
+                
+                </video>
+                <div class="boxx" style="padding: 50px; z-index: 10;position: relative;">
+                    <div class="containerx" style="display: flex; align-items: center; justify-content: space-between; margin-right: 50px;"><div style="display: flex; flex-direction: column; align-items: start;">
+                        <h2 id="quote" style="  z-index: 50;">Explore the colourful World</h2>
+                       
+                     
+                        
+                        <h1 style="text-align: start; font-size: 50px; ">A WONDERFUL GIFT</h1>
+                    </div>
                         <input type="radio" name="slider" id="item-1" checked />
                         <input type="radio" name="slider" id="item-2" />
                         <input type="radio" name="slider" id="item-3" />
                         
-                        <div class="cards" style="padding: 10px;">
+                        <div class="cards" style="padding: 10px; margin-left: 80px;">
                             
                             <label class="cardt" for="item-1" id="col-img-1">
                                 <img src="./img/carousel-img4.jpg" />
@@ -125,7 +137,7 @@
         </header>
 
         <!--Events-->
-        <section class="events" id="events">
+        <section class="events" id="events" style="background-color: black; width: 100vw; padding-top: 20px; padding-bottom: 20px ;height: 100vh;">
             <div class="container">
                 <div class="title">
                     <h1 class="dark">Upcoming Events</h1>
@@ -168,8 +180,22 @@
 
         <!--Explore-->
         <section class="explore" id="explore">
+            
             <div class="explore-content">
-                <h1>EXPLORE THE WORLD</h1>
+                <!-- <video src="/img/vid-3.mp4" autoplay loop muted 
+                style="
+                width: 100vw;
+                height: 100vh;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            z-index: -1;
+                "  >
+                 -->
+                <h1 style="z-index: 10;">EXPLORE THE WORLD</h1>
                 <div class="line"></div>
                 <p>
                     “Travel makes one modest. You see what a tiny place you
@@ -183,7 +209,7 @@
         <!--Explore-->
 
         <!--tours-->
-        <section class="tours" id="tours">
+        <section class="tours" id="tours" >
             <div class="container row">
                 <div class="col content-col">
                     <h1 class="font-color">UPCOMING TOURS & DESTINATION</h1>
@@ -224,18 +250,49 @@
                                         color: white;
                                     "
                                 >
-                                    Find that
+                                   OUR TEAM
                                 </h1>
                                 <br />
+                                <div style="display: flex; align-items: center; justify-content: space-around;  padding-bottom: 10px;">
+                                
+                                <div style="display: flex; flex-direction: column; justify-content: space-between; ">    <img
+                                    class="img2"
+                                    src="./img/shantanu.jpg"
+                                    width="200"
+                                    style="border-radius: 50%"
+                                />
+                                <h3 style="margin-top: 10px;">Shantanu Bhukan</h3>
+                            </div>
+                            <div style="display: flex; flex-direction: column; justify-content: space-between; ">
                                 <img
                                     class="img2"
-                                    src="./img/mountain_dark.jpg"
+                                    src="./img/nipun.jpg"
                                     width="200"
-                                    style="border-radius: 12%"
+                                    style="border-radius: 50%"
                                 />
+                                <h3 style="margin-top: 10px;">Nipun Mahajan</h3>
+                            </div>
+                                <div style="display: flex; flex-direction: column; justify-content: space-between; "><img
+                                    class="img2"
+                                    src="./img/karthi.jpg"
+                                    width="200"
+                                    style="border-radius: 50%"
+                                />
+                                <h3 style="margin-top: 10px;">Karthikeya Thatipamula</h3>
+                            </div>
+                            <div style="display: flex; flex-direction: column; justify-content: space-between; ">  <img
+                                    class="img2"
+                                    src="./img/aryan.jpg"
+                                    width="200"
+                                    style="border-radius: 50%"
+                                />
+                                
+                                <h3 style="margin-top: 10px;">Aryan Sohani</h3>
+                            </div>
+                            </div>
                                 <br />
                                 <h1 class="logo" style="font-size: 50px">
-                                    ADVENTURE
+                                    
                                 </h1>
                             </center>
                         </a>
@@ -243,6 +300,145 @@
                 </div>
             </div>
         </section>
+
+        <section class="packages" id="packages" style="display: flex; flex-direction: column; align-items: center; padding: 20px; justify-content: space-around; text-align: center; width: 100vw; gap: 30px;">
+
+            <h1 class="heading wow fadeIn">
+                <span>p</span>
+                <span>a</span>
+                <span>c</span>
+                <span>k</span>
+                <span>a</span>
+                <span>g</span>
+                <span>e</span>
+                <span>s</span>
+            </h1>
+        
+            <div style="display: flex;  margin-top: 10px; gap: 20px; width: 100%; justify-content: space-between;">
+        
+                <div class="fadeInUp" data-wow-duration="2s" style="gap:20px; box-shadow: 0 4px 8px 0 white">
+                    <a href="img/p-1.jpg" data-lightbox="image-1" data-title="Mumbai"><img src="img/p-1.jpg" alt="image"></a>
+                    <div class="content">
+                        <h3> <i class="fas fa-map-marker-alt"></i> mumbai </h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="price"> $90.00 <span>$120.00</span> </div>
+                        <button class="btn">book now</button>
+                    </div>
+                </div>
+        
+                <div class=" fadeInUp" data-wow-duration="2s" style="gap:20px; box-shadow: 0 4px 8px 0 white">
+                    <a href="img/p-2.jpg" data-lightbox="image-1" data-title="Hawaii"><img src="img/p-2.jpg" alt="image"></a>
+                    <div class="content">
+                        <h3> <i class="fas fa-map-marker-alt"></i> hawaii </h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="price"> $70.00 <span>$100.00</span> </div>
+                        <button class="btn">book now</button>
+                    </div>
+                </div>
+        
+                <div class="fadeInUp" data-wow-duration="2s" style="gap:20px; box-shadow: 0 4px 8px 0 white">
+                    <a href="img/p-3.jpg" data-lightbox="image-3" data-title="Sydney"><img src="img/p-3.jpg" alt="image"></a>
+                    <div class="content">
+                        <h3> <i class="fas fa-map-marker-alt"></i> sydney </h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="price"> $130.00 <span>$150.00</span> </div>
+                        <button class="btn">book now</button>
+                    </div>
+                </div>
+        
+                <div class="fadeInUp" data-wow-duration="2s" style="gap:20px; box-shadow: 0 4px 8px 0 white">
+                    <a href="img/p-4.jpg" data-lightbox="image-4" data-title="My caption"><img src="img/p-4.jpg" alt="image"></a>
+                    <div class="content">
+                        <h3> <i class="fas fa-map-marker-alt"></i> paris </h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="price"> $50.00 <span>$90.00</span> </div>
+                        <button class="btn">book now</button>
+                    </div>
+                </div>
+        </div>
+        <div style="display: flex;  margin-top: 10px; gap: 20px; width: 100%; justify-content: space-between;">
+           <div class="fadeInUp" data-wow-duration="2s" style="width: fit-content;gap:20px; box-shadow: 0 4px 8px 0 white">
+                    <a href="img/p-5.jpg" data-lightbox="image-1" data-title="Singapur"><img src="img/p-2.jpg" alt="image"></a>
+                    <div class="content">
+                        <h3> <i class="fas fa-map-marker-alt"></i> Singapur </h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="price"> $70.00 <span>$100.00</span> </div>
+                        <button class="btn">book now</button>
+                    </div>
+                </div>
+        
+                <div class=" fadeInUp" data-wow-duration="2s" style="gap:20px; box-shadow: 0 4px 8px 0 white">
+                    <a href="img/p-6.jpg" data-lightbox="image-3" data-title="America"><img src="img/p-3.jpg" alt="image"></a>
+                    <div class="content">
+                        <h3> <i class="fas fa-map-marker-alt"></i> America </h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="price"> $130.00 <span>$150.00</span> </div>
+                        <button class="btn">book now</button>
+                    </div>
+                </div>
+        
+                <div class=" fadeInUp" data-wow-duration="2s" style="gap:20px; box-shadow: 0 4px 8px 0 white">
+                    <a href="img/p-2.jpg" data-lightbox="image-4" data-title="Paris"><img src="img/p-4.jpg" alt="image"></a>
+                    <div class="content">
+                        <h3> <i class="fas fa-map-marker-alt"></i> paris </h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="price"> $50.00 <span>$90.00</span> </div>
+                        <button class="btn">book now</button>
+                    </div>
+                </div>
+            </div>
+        
+        </section>
+        
         
 
 
