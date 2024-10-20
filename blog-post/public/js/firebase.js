@@ -1,5 +1,8 @@
 let firebaseConfig = {
-    // Enter your firebase credentials
+    PROJECT_NAME: 'BHRAMANTI',
+   PROJECT_ID: 'bhramanti-2024',
+   PROJECT_NUMBER: 671555597189,
+   DATABASE:'BHRAMANTI'
 };
 
 firebase.initializeApp(firebaseConfig);
