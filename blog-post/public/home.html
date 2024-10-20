@@ -56,24 +56,77 @@
             <div id="review-container">
                 <!-- Reviews from LocalStorage will be dynamically inserted here -->
             </div>
-            
+
+            <div class="filter-sort-container">
+                <label for="filter-rating" class="filter-sort-label">Filter by Rating:</label>
+                <select id="filter-rating" class="filter-sort">
+                    <option value="all">All Ratings</option>
+                    <option value="5">⭐️⭐️⭐️⭐️⭐️</option>
+                    <option value="4">⭐️⭐️⭐️⭐️</option>
+                    <option value="3">⭐️⭐️⭐️</option>
+                    <option value="2">⭐️⭐️</option>
+                    <option value="1">⭐️</option>
+                </select>
+        
+                <label for="sort-reviews" class="filter-sort-label">Sort by:</label>
+                <select id="sort-reviews" class="filter-sort">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="highest">Highest Rating</option>
+                    <option value="lowest">Lowest Rating</option>
+                </select>
+            </div>
+
+            <!-- New Search Bar -->
+            <div class="search-container">
+               <input type="text" id="search-reviews" placeholder="Search reviews..." class="search-input">
+            </div>
         </section>
 
         <section class="review-form-section" id="submit-review">
-            <h2>Submit Your Review</h2>
-            <form action="#" method="POST" class="review-form">
-                <input type="text" name="title" placeholder="Review Title" required>
-                <textarea name="review" placeholder="Write your review..." rows="4" required></textarea>
-                <input type="text" name="author" placeholder="Your Name" required>
-                <button type="submit" class="btn">Submit Review</button>
-            </form>
+            <div class="form-container">
+                <h2>Submit Your Review</h2>
+                <form action="#" method="POST" class="review-form">
+                    <input type="text" name="title" placeholder="Review Title" required>
+        
+                    <textarea name="review" placeholder="Write your review..." rows="4" required></textarea>
+                    <span id="review-count">0/500 characters</span>
+        
+                    <input type="text" name="author" placeholder="Your Name" required>
+        
+                    <div class="rating-container">
+                        <label>Rating: </label>
+                        <div class="star-rating">
+                            <input type="radio" name="rating" value="5" id="star5">
+                            <label for="star5" class="star">&#9733;</label>
+                    
+                            <input type="radio" name="rating" value="4" id="star4">
+                            <label for="star4" class="star">&#9733;</label>
+                    
+                            <input type="radio" name="rating" value="3" id="star3">
+                            <label for="star3" class="star">&#9733;</label>
+                    
+                            <input type="radio" name="rating" value="2" id="star2">
+                            <label for="star2" class="star">&#9733;</label>
+                    
+                            <input type="radio" name="rating" value="1" id="star1">
+                            <label for="star1" class="star">&#9733;</label>
+                        </div>
+                    </div>
+                    
+        
+                    <button type="submit" class="btn">Submit Review</button>
+                </form>
+            </div>
         </section>
+        
+        
     </main>
 
     <footer>
         <p>&copy; 2024 Adventure Reviews. All Rights Reserved.</p>
     </footer>
-    <script src="js/review.js"></script>
 
+    <script src="js/review.js"></script>
 </body>
 </html>
