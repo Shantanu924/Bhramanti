@@ -1,3 +1,5 @@
+ 
+
 document.addEventListener('DOMContentLoaded', () => {
     loadReviews();
     setupFilterAndSort(); // Set up event listeners for filter and sort
@@ -205,5 +207,140 @@ function setupFilterAndSort() {
 
     sortReviews.addEventListener('change', () => {
         loadReviews(filterRating.value, sortReviews.value);
+    });
+}
+
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const title = form.title.value;
+    const review = form.review.value;
+    const author = form.author.value;
+    const rating = document.querySelector('input[name="rating"]:checked')?.value || 'No rating';
+    const date = new Date().toISOString();
+
+    if (form.dataset.editIndex) {
+        const editIndex = form.dataset.editIndex;
+        // Update the review in Firestore
+        await db.collection('reviews').doc(editIndex).update({ title, review, author, rating, date });
+        delete form.dataset.editIndex; // Clear the edit index
+        alert('Review updated successfully!');
+    } else {
+        const newReview = { title, review, author, rating, date };
+        // Add new review to Firestore
+        await db.collection('reviews').add(newReview);
+        alert('Review submitted successfully!');
+    }
+
+    form.reset();
+    loadReviews();
+});
+
+async function loadReviews(filteredRating = 'all', sortOrder = 'newest', searchTerm = '') {
+    const reviewContainer = document.getElementById('review-container');
+    reviewContainer.innerHTML = '';
+
+    // Fetch reviews from Firestore
+    let reviews = [];
+    const snapshot = await db.collection('reviews').get();
+    snapshot.forEach(doc => {
+        reviews.push({ id: doc.id, ...doc.data() });
+    });
+
+    // Filter reviews by rating
+    if (filteredRating !== 'all') {
+        reviews = reviews.filter(review => review.rating === filteredRating);
+    }
+    
+    // Filter reviews by search term
+    if (searchTerm) {
+        reviews = reviews.filter(review =>
+            review.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            review.review.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+    }
+
+    // Sort reviews based on the selected order
+    reviews.sort((a, b) => {
+        switch (sortOrder) {
+            case 'newest':
+                return new Date(b.date) - new Date(a.date);
+            case 'oldest':
+                return new Date(a.date) - new Date(b.date);
+            case 'highest':
+                return b.rating.length - a.rating.length;
+            case 'lowest':
+                return a.rating.length - b.rating.length;
+            default:
+                return 0;
+        }
+    });
+
+    reviews.forEach((review, index) => {
+        const reviewCard = document.createElement('div');
+        reviewCard.classList.add('review-card');
+        reviewCard.innerHTML = `
+            <h3 class="review-title">${review.title}</h3>
+            <p class="review-text">${review.review}</p>
+            <div class="review-rating">${'⭐️'.repeat(review.rating.length)}</div>
+            <p class="review-author">- ${review.author}</p>
+            <p class="review-date ">${new Date(review.date).toLocaleDateString()}</p>
+            <button class="edit-btn" data-index="${index}" data-id="${review.id}">Edit</button>
+            <button class="delete-btn" data-index="${index}" data-id="${review.id}">Delete</button>
+        `;
+        reviewContainer.appendChild(reviewCard);
+    });
+
+    attachEditAndDeleteListeners();
+}
+
+function attachEditAndDeleteListeners() {
+    const editButtons = document.querySelectorAll('.edit-btn');
+    editButtons.forEach(button => {
+        button.addEventListener('click', async () => {
+            const index = button.dataset.index;
+            const reviewId = button.dataset.id;
+            const reviews = await db.collection('reviews').get();
+            const reviewToEdit = reviews.docs.find(doc => doc.id === reviewId).data();
+
+            // Populate the form with review data
+            form.title.value = reviewToEdit.title;
+            form.review.value = reviewToEdit.review;
+            form.author.value = reviewToEdit.author;
+            document.querySelector(`input[name="rating"][value="${reviewToEdit.rating}"]`).checked = true;
+
+            // Update the form submission to handle editing
+            form.removeEventListener('submit', handleSubmit); // Remove old submit listener
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                // Update the review in Firestore
+                await db.collection('reviews').doc(reviewId).update({
+                    title: form.title.value,
+                    review: form.review.value,
+                    author: form.author.value,
+                    rating: document.querySelector('input[name="rating"]:checked')?.value || 'No rating',
+                    date: reviewToEdit.date // Keep the original date
+                });
+                alert('Review updated successfully!');
+                form.reset();
+                loadReviews(); // Reload reviews
+            });
+        });
+    });
+
+    const deleteButtons = document.querySelectorAll('.delete-btn');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', async () => {
+            const index = button.dataset.index;
+            const reviewId = button.dataset.id;
+
+            // Confirmation before deleting
+            if (confirm('Are you sure you want to delete this review?')) {
+                // Delete the review from Firestore
+                await db.collection('reviews').doc(reviewId).delete();
+                alert('Review deleted successfully!');
+                loadReviews(); // Reload reviews after deletion
+            }
+        });
     });
 }

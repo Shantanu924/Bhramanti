@@ -1,17 +1,18 @@
 import {initializeApp} from "firebase/app";
 import {getAnalytics} from "firebase/analytics";
-import {getFirestore} from "firebase/firestore";
+import {collection, getFirestore} from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBHCd0MGZoGCOf60WeomPZUMADs5uEGLOU",
-    authDomain: "bharamanti.firebaseapp.com",
-    projectId: "bharamanti",
-    storageBucket: "bharamanti.appspot.com",
-    messagingSenderId: "124592706261",
-    appId:"1:124592706261:web:6b41e4fa89f878eeed885c",
-    measurementId: "G-QXZR37J8E0"
-};
-
+    apiKey: "AIzaSyCyIXA229tj09HtkSQUNkPZmbP0G7iWqzY",
+    authDomain: "bhramanti-2024.firebaseapp.com",
+    projectId: "bhramanti-2024",
+    storageBucket: "bhramanti-2024.appspot.com",
+    messagingSenderId: "671555597189",
+    appId: "1:671555597189:web:65f1f61db9db629a078aec",
+    measurementId: "G-DY0F7KZ5Y1",
+    collectionId:"bhramanti"
+  };
+  
 const app = firebase.initializeApp(firebaseConfig);
 const analytics = firebase.getAnalytics(firebaseConfig);
 let db = firebase.getFirestore();
